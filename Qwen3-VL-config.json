@@ -1,0 +1,112 @@
+{
+  "api": {
+    "provider": "dashscope",
+    "timeout": 30,
+    "max_retries": 3,
+    "proxy": null,
+    "disable_proxy_for_t8": true,
+    "providers": {
+      "通义万像API": {
+        "name": "dashscope",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "sk-2aaf953db2ba4260ab0e29f9e91fd35a"
+      },
+      "t8的贞贞AI工坊": {
+        "name": "T8",
+        "base_url": "https://ai.t8star.cn/v1",
+        "api_key": "sk-NEF5kPDaUTzpLPwb9YLHHZtPeauRQBnPzc8MI4I7LJ3oadpG",
+        "max_images": 4,
+        "compression_quality": 85
+      },
+      "Comfly API": {
+        "name": "Comfly",
+        "base_url": "https://ai.comfly.chat/v1",
+        "api_key": "sk-9wjYfsOrd1WxTd61AGxCcmI3tAubLnUvDOwaiuWE25XtYHNx",
+        "max_images": 4,
+        "compression_quality": 85
+      }
+    }
+  },
+  "models": {
+    "default": "qwen3-vl-235b-a22b-instruct",
+    "available": [
+      {
+        "name": "qwen3-vl-235b-a22b-instruct",
+        "display_name": "[Tongyi Wanxiang]qwen3-vl-235b-a22b-instruct",
+        "description": "Latest Qwen3-VL model with instruction tuning",
+        "max_tokens": 8192,
+        "vision_capable": true,
+        "video_capable": true
+      },
+      {
+        "name": "qwen3-vl-235b-a22b",
+        "display_name": "[Comfly-T8]qwen3-vl-235b-a22b",
+        "description": "Qwen3-VL model for Comfly T8 and Comfly API",
+        "max_tokens": 8192,
+        "vision_capable": true,
+        "video_capable": true
+      },
+      {
+        "name": "qwen3-vl-235b-a22b-thinking",
+        "display_name": "[Tongyi Wanxiang]qwen3-vl-235b-a22b-thinking",
+        "description": "Qwen3-VL with extended thinking capability",
+        "max_tokens": 8192,
+        "vision_capable": true,
+        "video_capable": true
+      },
+      {
+        "name": "qwen-vl-max",
+        "display_name": "[Tongyi Wanxiang]qwen-vl-max",
+        "description": "Maximum capability Qwen-VL model",
+        "max_tokens": 4096,
+        "vision_capable": true,
+        "video_capable": true
+      },
+      {
+        "name": "qwen-vl-plus",
+        "display_name": "[Tongyi Wanxiang]qwen-vl-plus",
+        "description": "Balanced Qwen-VL model",
+        "max_tokens": 4096,
+        "vision_capable": true,
+        "video_capable": true
+      }
+    ]
+  },
+  "generation": {
+    "default_temperature": 0.7,
+    "default_top_p": 0.8,
+    "default_top_k": 20,
+    "default_max_tokens": 1024,
+    "default_repetition_penalty": 1.0,
+    "temperature_range": [0.0, 2.0],
+    "top_p_range": [0.0, 1.0],
+    "top_k_range": [0, 100],
+    "max_tokens_range": [1, 8192]
+  },
+  "media": {
+    "image": {
+      "max_size_mb": 9,
+      "compression_quality": 95,
+      "min_compression_quality": 10,
+      "supported_formats": ["jpg", "jpeg", "png", "gif", "webp", "bmp"]
+    },
+    "video": {
+      "max_size_mb": 9,
+      "supported_formats": ["mp4", "mov", "webm", "avi", "mkv", "flv", "wmv"],
+      "max_duration_seconds": 600
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "enable_debug": false,
+    "log_api_calls": true,
+    "log_payloads": false
+  },
+  "features": {
+    "enable_streaming": true,
+    "enable_thinking": true,
+    "enable_image_compression": true,
+    "enable_video_compression": false
+  }
+}
+
