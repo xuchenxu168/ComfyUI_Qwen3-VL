@@ -768,7 +768,7 @@ stream: True  // 勾选启用
 <table>
 <tr>
 <td align="center">
-<img src="assets/wechat_qrcode.png" width="200" alt="微信二维码"><br>
+<img src="https://github.com/xuchenxu168/images/blob/main/%E5%BE%AE%E4%BF%A1%E5%8F%B7.jpg" width="200" alt="微信二维码"><br>
 <b>微信二维码</b><br>
 扫码添加微信
 </td>
@@ -786,7 +786,7 @@ stream: True  // 勾选启用
 <table>
 <tr>
 <td align="center">
-<img src="assets/wechat_pay.png" width="200" alt="微信收款码"><br>
+<img src="https://github.com/xuchenxu168/images/blob/main/%E6%94%B6%E6%AC%BE%E7%A0%81.jpg" width="200" alt="微信收款码"><br>
 <b>微信赞赏</b><br>
 感谢您的支持！
 </td>
