@@ -9,19 +9,19 @@
       "通义万像API": {
         "name": "dashscope",
         "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-        "api_key": "sk-2aaf953db2ba4260ab0e29f9e91fd35a"
+        "api_key": ""
       },
       "t8的贞贞AI工坊": {
         "name": "T8",
         "base_url": "https://ai.t8star.cn/v1",
-        "api_key": "sk-NEF5kPDaUTzpLPwb9YLHHZtPeauRQBnPzc8MI4I7LJ3oadpG",
+        "api_key": "",
         "max_images": 4,
         "compression_quality": 85
       },
       "Comfly API": {
         "name": "Comfly",
         "base_url": "https://ai.comfly.chat/v1",
-        "api_key": "sk-9wjYfsOrd1WxTd61AGxCcmI3tAubLnUvDOwaiuWE25XtYHNx",
+        "api_key": "",
         "max_images": 4,
         "compression_quality": 85
       }
