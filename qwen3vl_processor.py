@@ -24,7 +24,20 @@ class Qwen3VLProcessor:
     Enhanced Qwen3-VL processor node with improved architecture
     Supports text, images, and videos directly
     """
-    
+
+    # Model ID mapping: model_name -> HuggingFace repo_id
+    MODEL_REPO_MAP = {
+        "Qwen3-VL-4B-Instruct": "Qwen/Qwen3-VL-4B-Instruct",
+        "Qwen3-VL-4B-Thinking": "Qwen/Qwen3-VL-4B-Thinking",
+        "Qwen3-VL-8B-Instruct": "Qwen/Qwen3-VL-8B-Instruct",
+        "Qwen3-VL-8B-Thinking": "Qwen/Qwen3-VL-8B-Thinking",
+        "Qwen3-VL-4B-Instruct-FP8": "Qwen/Qwen3-VL-4B-Instruct-FP8",
+        "Qwen3-VL-4B-Thinking-FP8": "Qwen/Qwen3-VL-4B-Thinking-FP8",
+        "Qwen3-VL-8B-Instruct-FP8": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "Qwen3-VL-8B-Thinking-FP8": "Qwen/Qwen3-VL-8B-Thinking-FP8",
+        "Huihui-Qwen3-VL-8B-Instruct-abliterated": "huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated",
+    }
+
     def __init__(self):
         self.model_checkpoint = None
         self.processor = None
@@ -158,9 +171,12 @@ class Qwen3VLProcessor:
         if self.current_model_name == model_name and self.model is not None:
             return
 
-        model_id = f"Qwen/{model_name}"
+        # Get HuggingFace repo ID from mapping, fallback to Qwen/{model_name}
+        model_id = self.MODEL_REPO_MAP.get(model_name, f"Qwen/{model_name}")
+
+        # Use model_name as local directory name
         self.model_checkpoint = os.path.join(
-            folder_paths.models_dir, "qwen3vl", os.path.basename(model_id)
+            folder_paths.models_dir, "qwen3vl", model_name
         )
 
         # Download model if not exists
