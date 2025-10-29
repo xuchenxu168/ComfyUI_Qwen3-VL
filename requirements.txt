@@ -11,6 +11,7 @@ transformers>=4.57.0
 qwen-vl-utils>=0.0.14
 opencv-python>=4.8.0
 bitsandbytes>=0.41.0
+tqdm>=4.65.0
 triton-windows>=2.1.0; sys_platform == 'win32'
 triton>=2.1.0; sys_platform == 'linux'
 
