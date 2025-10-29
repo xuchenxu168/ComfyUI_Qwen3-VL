@@ -54,6 +54,7 @@ class Qwen3VLProcessor:
                         "Qwen3-VL-4B-Thinking-FP8",
                         "Qwen3-VL-8B-Instruct-FP8",
                         "Qwen3-VL-8B-Thinking-FP8",
+                        "Huihui-Qwen3-VL-8B-Instruct-abliterated",
                     ],
                     {"default": "Qwen3-VL-4B-Instruct"}
                 ),
@@ -117,11 +118,46 @@ class Qwen3VLProcessor:
     CATEGORY = "Qwen3-VL"
     OUTPUT_NODE = True
 
+    def _download_model_with_progress(self, model_id: str, local_dir: str):
+        """Download model with progress display"""
+        from huggingface_hub import snapshot_download
+        from tqdm.auto import tqdm
+
+        print(f"\n{'='*70}")
+        print(f"[Qwen3-VL] 📥 开始下载模型: {model_id}")
+        print(f"[Qwen3-VL] 📂 保存路径: {local_dir}")
+        print(f"[Qwen3-VL] ⏳ 请耐心等待，下载可能需要几分钟到几十分钟...")
+        print(f"[Qwen3-VL] 💡 下载进度将在下方显示")
+        print(f"{'='*70}\n")
+
+        try:
+            # snapshot_download 会自动显示每个文件的下载进度条
+            snapshot_download(
+                repo_id=model_id,
+                local_dir=local_dir,
+                local_dir_use_symlinks=False,
+                resume_download=True,
+                tqdm_class=tqdm,  # 使用 tqdm 显示进度
+            )
+            print(f"\n{'='*70}")
+            print(f"[Qwen3-VL] ✅ 模型下载完成: {model_id}")
+            print(f"{'='*70}\n")
+        except Exception as e:
+            print(f"\n{'='*70}")
+            print(f"[Qwen3-VL] ❌ 模型下载失败: {e}")
+            print(f"[Qwen3-VL] 💡 解决方法:")
+            print(f"[Qwen3-VL]    1. 检查网络连接")
+            print(f"[Qwen3-VL]    2. 使用镜像站: export HF_ENDPOINT=https://hf-mirror.com")
+            print(f"[Qwen3-VL]    3. 使用代理: export HTTP_PROXY=http://127.0.0.1:7890")
+            print(f"[Qwen3-VL]    4. 手动下载模型到: {local_dir}")
+            print(f"{'='*70}\n")
+            raise
+
     def _load_model(self, model_name: str, quantization: str, attention_type: str):
         """Load model and processor with specified configuration"""
         if self.current_model_name == model_name and self.model is not None:
             return
-        
+
         model_id = f"Qwen/{model_name}"
         self.model_checkpoint = os.path.join(
             folder_paths.models_dir, "qwen3vl", os.path.basename(model_id)
@@ -129,12 +165,7 @@ class Qwen3VLProcessor:
 
         # Download model if not exists
         if not os.path.exists(self.model_checkpoint):
-            from huggingface_hub import snapshot_download
-            snapshot_download(
-                repo_id=model_id,
-                local_dir=self.model_checkpoint,
-                local_dir_use_symlinks=False,
-            )
+            self._download_model_with_progress(model_id, self.model_checkpoint)
 
         # Load processor
         self.processor = AutoProcessor.from_pretrained(self.model_checkpoint)
