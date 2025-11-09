@@ -1,70 +1,17 @@
-[build-system]
-requires = ["setuptools>=65.0", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "ComfyUI-Qwen3-VL"
-version = "1.2.0"
 description = "Enhanced Qwen3-VL integration for ComfyUI with direct image and video support"
-readme = "README.md"
-requires-python = ">=3.10"
-license = {text = "Apache-2.0"}
-authors = [
-    {name = "ComfyUI Community", email = ""}
-]
-keywords = ["comfyui", "qwen3-vl", "vision-language", "multimodal", "ai"]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: Apache Software License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-]
-
-dependencies = [
-    "torch>=2.0.0",
-    "torchvision>=0.15.0",
-    "torchaudio>=2.0.0",
-    "numpy>=1.24.0",
-    "pillow>=9.0.0",
-    "huggingface_hub>=0.19.0",
-    "accelerate>=0.24.0",
-    "optimum>=1.14.0",
-    "av>=10.0.0",
-    "transformers>=4.57.1",
-    "qwen-vl-utils>=0.0.14",
-    "opencv-python>=4.8.0",
-    "bitsandbytes>=0.41.0",
-]
-
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
-    "black>=23.0",
-    "isort>=5.0",
-    "flake8>=6.0",
-]
+version = "1.6.0"
+license = {file = "LICENSE"}
+dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/yourusername/ComfyUI_Qwen3-VL"
-Documentation = "https://github.com/yourusername/ComfyUI_Qwen3-VL/blob/main/README.md"
-Repository = "https://github.com/yourusername/ComfyUI_Qwen3-VL.git"
-Issues = "https://github.com/yourusername/ComfyUI_Qwen3-VL/issues"
+Repository = "https://github.com/yourusername/ComfyUI_Qwen3-VL"
+"Bug Tracker" = "https://github.com/yourusername/ComfyUI_Qwen3-VL/issues"
+#  Used by Comfy Registry https://registry.comfy.org
 
-[tool.setuptools]
-packages = ["ComfyUI_Qwen3-VL"]
-
-[tool.black]
-line-length = 100
-target-version = ['py310', 'py311', 'py312']
-
-[tool.isort]
-profile = "black"
-line_length = 100
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
+[tool.comfy]
+PublisherId = "xuchenxu168"
+DisplayName = "ComfyUI-Qwen3-VL"
+Icon = ""
+includes = []
