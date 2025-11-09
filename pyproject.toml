@@ -6,8 +6,8 @@ license = {file = "LICENSE"}
 dependencies = []
 
 [project.urls]
-Repository = "https://github.com/yourusername/ComfyUI_Qwen3-VL"
-"Bug Tracker" = "https://github.com/yourusername/ComfyUI_Qwen3-VL/issues"
+Repository = "https://github.com/xuchenxu168/ComfyUI_Qwen3-VL"
+"Bug Tracker" = "https://github.com/xuchenxu168/ComfyUI_Qwen3-VL/issues"
 #  Used by Comfy Registry https://registry.comfy.org
 
 [tool.comfy]
