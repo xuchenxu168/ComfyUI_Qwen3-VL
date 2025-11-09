@@ -1,7 +1,7 @@
 [project]
 name = "ComfyUI-Qwen3-VL"
 description = "Enhanced Qwen3-VL integration for ComfyUI with direct image and video support"
-version = "1.6.0"
+version = "2.0.0"
 license = {file = "LICENSE"}
 dependencies = []
 
