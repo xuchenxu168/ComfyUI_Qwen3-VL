@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ComfyUI-Qwen3-VL"
-version = "1.0.0"
+version = "1.2.0"
 description = "Enhanced Qwen3-VL integration for ComfyUI with direct image and video support"
 readme = "README.md"
 requires-python = ">=3.10"
