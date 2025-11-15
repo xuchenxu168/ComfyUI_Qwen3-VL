@@ -9,19 +9,26 @@
       "通义万像API": {
         "name": "dashscope",
         "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-        "api_key": ""
+        "api_key": "sk-2aaf953db2ba4260ab0e29f9e91fd35a"
       },
       "t8的贞贞AI工坊": {
         "name": "T8",
         "base_url": "https://ai.t8star.cn/v1",
-        "api_key": "",
+        "api_key": "sk-NEF5kPDaUTzpLPwb9YLHHZtPeauRQBnPzc8MI4I7LJ3oadpG",
         "max_images": 4,
         "compression_quality": 85
       },
       "Comfly API": {
         "name": "Comfly",
         "base_url": "https://ai.comfly.chat/v1",
-        "api_key": "",
+        "api_key": "sk-9wjYfsOrd1WxTd61AGxCcmI3tAubLnUvDOwaiuWE25XtYHNx",
+        "max_images": 4,
+        "compression_quality": 85
+      },
+      "硅基流动API": {
+        "name": "siliconflow",
+        "base_url": "https://api.siliconflow.cn/v1",
+        "api_key": "sk-xflnutheaxqiwtdbcuegklflsvbodcjvqzurnhsctlbxflej",
         "max_images": 4,
         "compression_quality": 85
       }
@@ -67,6 +74,30 @@
         "display_name": "[Tongyi Wanxiang]qwen-vl-plus",
         "description": "Balanced Qwen-VL model",
         "max_tokens": 4096,
+        "vision_capable": true,
+        "video_capable": true
+      },
+      {
+        "name": "Qwen/Qwen3-VL-32B-Instruct",
+        "display_name": "[siliconflow]Qwen/Qwen3-VL-32B-Instruct",
+        "description": "SiliconFlow Qwen3-VL 32B Instruct model",
+        "max_tokens": 8192,
+        "vision_capable": true,
+        "video_capable": true
+      },
+      {
+        "name": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+        "display_name": "[siliconflow]Qwen/Qwen3-VL-235B-A22B-Instruct",
+        "description": "SiliconFlow Qwen3-VL 235B-A22B Instruct model",
+        "max_tokens": 8192,
+        "vision_capable": true,
+        "video_capable": true
+      },
+      {
+        "name": "Qwen/Qwen3-VL-235B-A22B-Thinking",
+        "display_name": "[siliconflow]Qwen/Qwen3-VL-235B-A22B-Thinking",
+        "description": "SiliconFlow Qwen3-VL 235B-A22B Thinking model with reasoning capability",
+        "max_tokens": 8192,
         "vision_capable": true,
         "video_capable": true
       }

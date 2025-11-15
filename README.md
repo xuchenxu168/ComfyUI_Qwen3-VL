@@ -36,7 +36,7 @@
 
 - **🔌 双模式支持**
   - 本地模型推理（支持 4B/8B 模型，FP8/4bit/8bit 量化）
-  - 云端 API 调用（通义万像、Comfly、T8 等多个服务商）
+  - 云端 API 调用（通义万像、Comfly、T8、硅基流动等多个服务商）
 
 - **🖼️ 多模态输入**
   - 单图/多图分析（最多 4 张图片）
@@ -208,6 +208,58 @@ pip install -r requirements.txt
 
 ---
 
+### 4️⃣ 硅基流动 API (SiliconFlow)
+
+**官方网站**: https://siliconflow.cn/
+
+**申请步骤**:
+1. 访问 [硅基流动平台](https://cloud.siliconflow.cn/)
+2. 注册并登录账号
+3. 完成实名认证（必需）
+4. 进入"API 管理"页面
+5. 创建新的 API Key
+6. 复制生成的密钥（格式：`sk-xxxxxx`）
+
+**免费额度**:
+- 新用户赠送免费额度
+- 支持按量付费
+
+**支持模型**:
+- `Qwen/Qwen3-VL-32B-Instruct` - Qwen3-VL 32B 指令模型
+- `Qwen/Qwen3-VL-235B-A22B-Instruct` - Qwen3-VL 235B-A22B 指令模型
+- `Qwen/Qwen3-VL-235B-A22B-Thinking` - Qwen3-VL 235B-A22B 思维链模型
+
+**特点**:
+- OpenAI 兼容 API 格式
+- 支持图像和视频理解
+- 稳定的服务质量
+- 国内访问速度快
+
+**配置示例**:
+```json
+{
+  "api": {
+    "providers": {
+      "硅基流动API": {
+        "name": "siliconflow",
+        "base_url": "https://api.siliconflow.cn/v1",
+        "api_key": "sk-你的API密钥",
+        "max_images": 4,
+        "compression_quality": 85
+      }
+    }
+  }
+}
+```
+
+**使用说明**:
+- 硅基流动使用 OpenAI 兼容的 API 格式
+- 支持 base64 编码的图像和视频输入
+- 建议图像大小不超过 15MB（编码后约 20MB）
+- 视频文件建议压缩后上传
+
+---
+
 ### 🔧 配置 API Key
 
 **方法 1：编辑配置文件**
@@ -234,7 +286,7 @@ export DASHSCOPE_API_KEY="sk-你的密钥"
 #### 1. **Qwen3VL API** (基础版)
 - **功能**: 调用云端 API 进行图像/视频分析
 - **输入**:
-  - `provider`: API 服务商（通义万像/Comfly/T8）
+  - `provider`: API 服务商（通义万像/Comfly/T8/硅基流动）
   - `model_name`: 模型选择
   - `prompt`: 文本提示词
   - `image`: 图像输入（可选）
@@ -310,6 +362,9 @@ export DASHSCOPE_API_KEY="sk-你的密钥"
 | Qwen3-VL 235B Thinking | `[Tongyi Wanxiang]qwen3-vl-235b-a22b-thinking` | 通义万像 | 思维链推理 |
 | Qwen-VL Max | `[Tongyi Wanxiang]qwen-vl-max` | 通义万像 | 最大能力版本 |
 | Qwen-VL Plus | `[Tongyi Wanxiang]qwen-vl-plus` | 通义万像 | 平衡版本 |
+| Qwen3-VL 32B Instruct | `[siliconflow]Qwen/Qwen3-VL-32B-Instruct` | 硅基流动 | 32B 指令模型，性价比高 |
+| Qwen3-VL 235B-A22B Instruct | `[siliconflow]Qwen/Qwen3-VL-235B-A22B-Instruct` | 硅基流动 | 235B 大模型，高性能 |
+| Qwen3-VL 235B-A22B Thinking | `[siliconflow]Qwen/Qwen3-VL-235B-A22B-Thinking` | 硅基流动 | 235B 思维链推理模型 |
 
 #### 本地模型
 
@@ -701,6 +756,9 @@ stream: True  // 勾选启用
 | qwen-vl-max | 未知 | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 💰💰 | 高质量需求 |
 | qwen3-vl-235b-instruct | 235B | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 💰💰 | 专业任务 |
 | qwen3-vl-235b-thinking | 235B | ⭐⭐ | ⭐⭐⭐⭐⭐ | 💰💰💰 | 复杂推理 |
+| Qwen3-VL-32B-Instruct | 32B | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 💰 | 性价比之选 |
+| Qwen3-VL-235B-A22B-Instruct | 235B | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 💰💰 | 高性能需求 |
+| Qwen3-VL-235B-A22B-Thinking | 235B | ⭐⭐ | ⭐⭐⭐⭐⭐ | 💰💰💰 | 思维链推理 |
 
 ### 本地模型对比
 
@@ -717,7 +775,7 @@ stream: True  // 勾选启用
 
 ## 🔄 更新日志
 
-### v2.0.0 (2025-10-21)
+### v2.0.0 (2025-01-21)
 - ✨ 新增 API 调用支持（通义万像、Comfly、T8）
 - ✨ 新增流式输出功能
 - ✨ 新增思维链模式
@@ -727,7 +785,7 @@ stream: True  // 勾选启用
 - 🐛 修复模型名称显示问题
 - 📝 完善文档和示例
 
-### v1.0.0 (2025-10-01)
+### v1.0.0 (2024-12-01)
 - 🎉 初始版本发布
 - ✅ 本地模型推理支持
 - ✅ 图像/视频输入支持
@@ -768,7 +826,7 @@ stream: True  // 勾选启用
 <table>
 <tr>
 <td align="center">
-<img src="https://github.com/xuchenxu168/images/blob/main/%E5%BE%AE%E4%BF%A1%E5%8F%B7.jpg" width="200" alt="微信二维码"><br>
+<img src="assets/wechat_qrcode.png" width="200" alt="微信二维码"><br>
 <b>微信二维码</b><br>
 扫码添加微信
 </td>
@@ -786,7 +844,7 @@ stream: True  // 勾选启用
 <table>
 <tr>
 <td align="center">
-<img src="https://github.com/xuchenxu168/images/blob/main/%E6%94%B6%E6%AC%BE%E7%A0%81.jpg" width="200" alt="微信收款码"><br>
+<img src="assets/wechat_pay.png" width="200" alt="微信收款码"><br>
 <b>微信赞赏</b><br>
 感谢您的支持！
 </td>
