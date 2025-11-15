@@ -4,6 +4,8 @@ Enhanced local implementation of Qwen3-VL for ComfyUI
 Supports direct image and video inputs without intermediate conversion
 """
 
+__version__ = "2.0.0"
+
 import os
 from .qwen3vl_processor import NODE_CLASS_MAPPINGS as PROCESSOR_MAPPINGS
 from .qwen3vl_processor import NODE_DISPLAY_NAME_MAPPINGS as PROCESSOR_DISPLAY_NAMES
@@ -29,5 +31,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     **API_ADVANCED_DISPLAY_NAMES,
 }
 
-__all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
+__all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "__version__"]
 
